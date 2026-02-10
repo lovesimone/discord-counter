@@ -11,6 +11,6 @@ start_date = tz.localize(datetime(2026, 2, 10))
 now = datetime.now(tz)
 days = (now.date() - start_date.date()).days + 1
 
-message = f"<@459679133513809951>\n<@624454617119588363> [{days}]"
+message = f"<@459679133513809951>\n`<@624454617119588363> Today is [{days}] after that threat.`"
 
 requests.post(WEBHOOK_URL, json={"content": message})
