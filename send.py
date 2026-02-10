@@ -12,7 +12,7 @@ now = datetime.now(tz)
 days = (now.date() - start_date.date()).days + 1
 
 message = (
-    f"<@459679133513809951>\n"
-    f"<@624454617119588363> `Today is {days} days after this [threat](https://discord.com/channels/500485047338663936/1150299145563807845/1470807354554712221).`"
+    f"<@459679133513809951>\n\n"
+    f"```<@624454617119588363> Today is {days} days after this [threat](https://discord.com/channels/500485047338663936/1150299145563807845/1470807354554712221).```"
 )
 requests.post(WEBHOOK_URL, json={"content": message})
