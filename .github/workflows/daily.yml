@@ -1,0 +1,26 @@
+name: Daily Discord Counter
+
+on:
+  schedule:
+    - cron: "40 15 * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Paris
+      WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - run: pip install requests pytz
+
+      - name: Run script
+        run: python send.py
